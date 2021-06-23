@@ -3,6 +3,7 @@ body {
   margin: auto;
   padding: 1em;
   line-height: 1.5em;
+  font-size: 14.5px;
 }
 
 
@@ -23,6 +24,17 @@ h3, h4, h5, h6 {
   text-align: left;
 }
 
+ul, ol {
+  padding: 0 0 0 10px;
+}
+
+li {
+  margin: 5px 0;
+  padding: 0;
+  font-family:"Times New Roman", Serif;
+  font-size: 14px;
+  color: grey;
+}
 
 
 /* header and footer areas */
@@ -37,9 +49,16 @@ h3, h4, h5, h6 {
   line-height: 2.0em
 }
 .menu, .article-meta, footer { text-align: center; }
-.title { font-size: 1em; }
-.author { font-size: 1.2em; } 
-.date { font-size: 1.2em; }
+.title { font-size: 1em;
+         font-family:"Times New Roman", Serif;}
+.author { font-size: 1em;
+          font-family: "Papyrus", Fantasy;
+          line-height: 1.0em
+} 
+.date { font-size: 1em;
+        font-family: "Times New Roman", Serif;
+        line-height: 1.0em
+     }
 footer a { text-decoration: none; }
 hr {
   border-style: dashed;
