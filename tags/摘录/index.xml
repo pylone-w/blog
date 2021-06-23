@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>摘录 on Pylone&#39;s Blog</title>
+    <link>https://pylone-w.github.io/tags/%E6%91%98%E5%BD%95/</link>
+    <description>Recent content in 摘录 on Pylone&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Jun 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://pylone-w.github.io/tags/%E6%91%98%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pale Blue Dot</title>
+      <link>https://pylone-w.github.io/2021/pale-blue-dot/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pylone-w.github.io/2021/pale-blue-dot/</guid>
+      <description>Look again at that dot. That’s here. That’s home. That’s us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every “superstar,” every “supreme leader,” every saint and sinner in the history of our species lived there–on a mote of dust suspended in a sunbeam.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Big Sur 系统外接显示器分辨率适配 | Pylone&#39;s Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Blog/日志</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Big Sur 系统外接显示器分辨率适配</span></h1>
+<h2 class="author">pylone</h2>
+<h2 class="date">2020/11/20</h2>
+</div>
+
+<main>
+
+
+
+<p>苹果BigSur系统更新后，原来的参数不能用了，导致外接显示器分辨率不适配，这才去网上找方案，原来是library文件夹移动造成的问题。</p>
+<div id="开启hidpi" class="section level3">
+<h3>（1）开启HiDPI</h3>
+<p>RDM可以修改分辨率，但是不支持高分辨率（HiDPI），因此首先需要开启macOS的HiDPI。</p>
+<pre><code>sudo defaults write Library/Preferences/com.apple.windowserver.plist DisplayResolutionEnabled -bool true</code></pre>
+</div>
+<div id="生成适配显示器的plist文件" class="section level3">
+<h3>（2）生成适配显示器的plist文件</h3>
+<p>在终端运行代码检测外接显示器的型号，终端输入</p>
+<pre><code>ioreg -lw0 | grep IODisplayPrefsKey</code></pre>
+<p>得到如下结果：</p>
+<pre><code>&quot;IODisplayPrefsKeyOld&quot; = &quot;IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/IGPU@2/AppleIntelFramebuffer@1/display0/AppleDisplay-10ac-413c&quot; &quot;IODisplayPrefsKey&quot; = &quot;IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/IGPU@2-10ac-413c-4f7dcef492c90de4&quot;</code></pre>
+<p>根据上述的413c和10ac，在<a href="https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/">此网站</a>上输入查询的型号，输出并下载该显示器分辨率的plist文件，文件为DisplayVendorID-413c.plist。</p>
+</div>
+<div id="将plist文件拷贝至根目录" class="section level3">
+<h3>（3）将plist文件拷贝至根目录</h3>
+<p>下载plist文件后，在/Library/Displays/Contents/Resources/Overrides/路径下创建文件夹DisplayVendorID-10ac，将上一步的DisplayVendorID-413c.plist文件去除后缀即DisplayVendorID-413c文件拷贝至此文件夹。</p>
+<p>注：这一步可能需要 <a href="http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/">disable System Integrity Protection</a> ，但<a href="https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/">据说</a> macOS Catalina 之后的系统的分辨率文件从System（/System/Library/Displays/Contents/Resources/Overrides/）移至Library（/Library/Displays/Contents/Resources/Overrides）文件夹，因此不再需要关闭SIP。</p>
+</div>
+<div id="重启电脑修改分辨率" class="section level3">
+<h3>（4）重启电脑修改分辨率</h3>
+<p>重启电脑，打开RDM，修改分辨率至1920×1080（HiDPI），成功。</p>
+<p>参考文献：<a href="https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/">SCALED RESOLUTIONS for your MacBooks external Monitor</a></p>
+</div>
+
+</main>
+
+  <footer>
+  <script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  © <a href="https://r.pylone.org">R</a>| <a href="https://github.com/pylone-w">Github</a> | <a href="https://music.163.com/#/user/home?id=6246158">Music</a>
+  
+  </footer>
+  </body>
+</html>
+

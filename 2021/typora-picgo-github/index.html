@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>typora&#43;picgo&#43;github实现博客上传照片 | Pylone&#39;s Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Blog/日志</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">typora+picgo+github实现博客上传照片</span></h1>
+<h2 class="author">pylone</h2>
+<h2 class="date">2021/02/05</h2>
+</div>
+
+<main>
+
+
+
+<p>后记：当时想在博客上显示一些照片，就兴冲冲找方法，结果你也看到了，图片可以成功长传至github仓库，但在博客网页上无法显示。没找出问题。那为什么要写这篇呢，大概因为不想白写，毕竟花了精力，就算是证明我折腾过吧。或者有大神居然来此，可指点一二，那是奢望。</p>
+<hr />
+<p>方法参考<a href="https://blog.csdn.net/zhao5269/article/details/104905118">此博客</a>。</p>
+<p>原理：用typora写作、插入图片时，由于typora自带picgo插件，可以直接调用picgo，picgo软件将本地图片上传至github仓库，并将github中此图片的链接返回给typora。将typora的md文件通过hubo上传时，博客就可以调用图片的链接，显示图片。</p>
+<div id="步骤1下载picgo软件" class="section level3">
+<h3>步骤1：下载picgo软件</h3>
+<p>下载软件后，在界面github图床设置，如下图：</p>
+<div class="figure">
+<img src="https://github.com/pylone-w/image/blob/main/blogImg/20210224194049.png" alt="截屏2021-02-24 下午7.40.46" />
+<p class="caption">截屏2021-02-24 下午7.40.46</p>
+</div>
+<p>这里的仓库名、分支名及token都在github上设置，具体参考<a href="https://blog.csdn.net/zhao5269/article/details/104905118">这个</a>。尤其注意的是，分支名不一定是master，比如我的是main；此外自定义域名也是个坑。</p>
+</div>
+<div id="步骤2typora设置" class="section level3">
+<h3>步骤2：typora设置</h3>
+<p>picgo设置好后，需在typora里设置通过picgo.app上传。</p>
+<p>以上，基本完成。</p>
+</div>
+<div id="一些问题" class="section level3">
+<h3>一些问题</h3>
+<p>1.github图片不显示。参考<a href="https://zhuanlan.zhihu.com/p/107196957">这个</a>，修改hosts解决了。</p>
+<p>2.博客图片不显示。目前为止尚未解决。</p>
+</div>
+
+</main>
+
+  <footer>
+  <script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  © <a href="https://r.pylone.org">R</a>| <a href="https://github.com/pylone-w">Github</a> | <a href="https://music.163.com/#/user/home?id=6246158">Music</a>
+  
+  </footer>
+  </body>
+</html>
+
