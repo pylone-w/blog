@@ -91,13 +91,19 @@ pre code { background: none; }
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 
-/* 正文段落排紧凑些：文章篇幅短、段落多，默认段间距会让版面显得零散 */
-main p { margin: 0.6em 0; }
+/* 正文段间距：比默认(1em)略收，但比纯紧凑版(0.6em)松，兼顾可读与版面 */
+main p { margin: 0.9em 0; }
+
+/* 章节标题上方留出大段空白，让文章结构一眼分明 */
+main h2 {
+  margin: 2.2em 0 0.8em 0;
+}
 
 /* 引文：去掉浏览器默认的 40px 左右缩进，改用左侧细线锚定。
-   字号与行高都收紧一档——引文是插入语，不该比正文更占地方。 */
+   字号与行高收紧一档——引文是插入语，不该比正文更占地方；
+   但上下留白与正文段间距一致，避免读起来忽松忽紧。 */
 main blockquote {
-  margin: 0.55em 0;
+  margin: 0.9em 0;
   padding: 0 0 0 0.85em;
   border-left: 3px solid #e3e3e3;
   background: none;
