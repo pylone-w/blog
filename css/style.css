@@ -69,6 +69,14 @@ hr {
 .article-meta { border-bottom: 0.5px dashed #ccc;
 }
 
+/* 首页日志列表的年份小标题 */
+.year-heading {
+  font-size: 18px;
+  font-weight: normal;
+  color: #666;
+  margin: 24px 0 8px 0;
+}
+
 /* code */
 pre {
   border: 1px solid #ddd;
