@@ -6,6 +6,7 @@
   --fill:   #F2ECD4;   /* 次级填充：代码底、表格斑马纹 */
   --rule:   #E3DCC0;   /* 分隔线 */
   --accent: #D63D4A;   /* 强调红：标题底、自述引用 */
+  --tagline-h: 31px;   /* 首页红色框体的统一高度（标语与导航项共用） */
 }
 
 body {
@@ -64,6 +65,74 @@ li {
   line-height: 2.0em
 }
 .menu, .article-meta, footer { text-align: center; }
+
+/* 站点头部第一行：图标 + 站名 */
+.site-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+.site-logo { width: 56px; height: auto; }
+.site-title { font-size: 25px; }
+
+/* 站点头部：所有页面一致。flex 让标语与导航自动对齐，
+   而不是靠写死的像素偏移——左侧图标高度随窗口变化。 */
+.home-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;          /* 窄屏时自动折行，不至于挤成一团 */
+}
+
+/* 标语与导航项统一成同样的红色框体：同高（--tagline-h）、同样的内边距。
+   关键：<a> 默认是 display:inline，而 height 对行内元素无效——不加
+   inline-block 的话导航项的框体只有文字那么高，与标语对不齐。 */
+.home-row .home-tagline,
+.home-nav a {
+  display: inline-block;
+  box-sizing: border-box;
+  height: var(--tagline-h);
+  line-height: var(--tagline-h);
+  padding: 0 0.55em;
+  margin: 0;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.home-row .home-tagline { font-size: 20px; }
+
+/* 文章标题：与标语、导航同一行，居中。字号比标语大，
+   不加底色——它是页面的标题，靠字号和位置区分即可。 */
+.home-row .page-title {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+}
+.home-nav a { font-size: 16px; }
+
+/* 文末日期：靠右、单独一行，框体与顶部导航项完全同规格（--tagline-h），
+   让页面首尾的红块尺寸一致，视觉上才呼应得上。 */
+.article-date {
+  text-align: right;
+  margin: 2.5em 0 0;
+}
+.article-date .date-box {
+  display: inline-block;
+  box-sizing: border-box;
+  height: var(--tagline-h);
+  line-height: var(--tagline-h);
+  padding: 0 0.55em;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.home-nav .menu { margin: 0; padding: 0; text-align: right; }
+.home-nav li { display: inline-block; margin: 0 0 0 0.4em; vertical-align: middle; }
 .title { font-size: 1em;
          font-family:"Times New Roman", Serif;}
 .author { font-size: 1em;
@@ -104,8 +173,6 @@ hr {
   color: var(--rule);
 }
 
-.article-meta { border-bottom: 0.5px dashed var(--rule);
-}
 
 /* 首页日志列表的年份小标题 */
 .year-heading {
@@ -145,18 +212,10 @@ main p {
   text-indent: 2em;
 }
 
-/* 章节标题：红底白字，但色块只包住文字本身。
-   两个关键点：
-     1. width: fit-content —— 否则色块会左右贯穿整个页面
-     2. line-height: 1.35 —— 正文行高是 2，标题会继承，色块会有 40px 高；
-        压到 1.35 再加一点点内边距，色块才刚好覆盖字体 */
+/* 章节标题：正常黑字，不加任何色块。
+   靠上方的大留白和加粗来分段——红色现在只留给首页标语、导航和自述引用。 */
 main h2 {
-  width: fit-content;
   margin: 2.4em 0 0.9em 0;
-  background: var(--accent);
-  color: #ffffff;
-  line-height: 1.35;
-  padding: 0.1em 0.45em;
 }
 
 /* 引用他人的话：左侧细灰线。
