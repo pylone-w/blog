@@ -114,15 +114,6 @@ pre {
 code { background: #f9f9f9; }
 pre code { background: none; }
 
-/* 「引用自己的话」：与 `>` 引用他人形成对照。
-   正文字体 + 暖色底纹，区别于等宽字体的代码。
-   底色不能太淡——#fbf3e4 那种和纯白只差 4 个色阶，屏幕上看不出来。 */
-.selfquote {
-  background: #f7e9c8;
-  padding: 1px 5px;
-  border-radius: 2px;
-}
-
 /* misc elements */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
