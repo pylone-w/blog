@@ -114,6 +114,10 @@ pre {
 code { background: #f9f9f9; }
 pre code { background: none; }
 
+/* 「引用自己的话」：与 `>` 引用他人相对。
+   方括号原样保留，只改字色；字体字号一律继承正文。 */
+.selfquote { color: #D63D4A; }
+
 /* misc elements */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
