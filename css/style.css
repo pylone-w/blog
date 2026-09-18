@@ -3,7 +3,10 @@ body {
   margin: auto;
   padding: 1em;
   font-family:"Times New Roman", Serif;
-  line-height: 1.5em;
+  /* 行距＝行高−字号。原来 1.5 即行距 0.5em，现调到 2.0，
+     行与行之间空出约一个字的高度。写成无单位数字，
+     子元素会按各自字号重新计算，比 em 更稳。 */
+  line-height: 2;
   font-size: 16px
 }
 
@@ -61,6 +64,30 @@ li {
         line-height: 1.0em
      }
 footer a { text-decoration: none; }
+
+/* 评论：默认只占一行，滚入视口才加载 utterances，
+   并可用同一按钮手动收起。否则空评论区会在每篇文章底部占掉一大块。 */
+.comments { margin: 1.6em 0 0.4em; }
+.comments.is-open { margin-bottom: 1em; }
+
+.comments-toggle {
+  display: block;
+  margin: 0 auto;          /* footer 整体居中，按钮也跟着居中 */
+  background: none;
+  border: none;
+  border-bottom: 1px dashed #ccc;
+  padding: 0 0 2px;
+  color: #888;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+.comments-toggle:hover { color: #333; }
+
+/* 展开后与正文同宽、左对齐（footer 默认居中会把 iframe 挤窄） */
+#comments-host { text-align: left; margin-top: 1em; }
+.utterances { width: 100%; max-width: 100%; }
+.utterances-frame { width: 100% !important; }
 hr {
   border-style: dashed;
   color: #ddd;
@@ -91,8 +118,12 @@ pre code { background: none; }
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 
-/* 正文段间距：比默认(1em)略收，但比纯紧凑版(0.6em)松，兼顾可读与版面 */
-main p { margin: 0.9em 0; }
+/* 正文段间距：比默认(1em)略收，但比纯紧凑版(0.6em)松，兼顾可读与版面。
+   首行缩进两字——中文正文的惯例，比段间距更能区分段落。 */
+main p {
+  margin: 0.9em 0;
+  text-indent: 2em;
+}
 
 /* 章节标题上方留出大段空白，让文章结构一眼分明 */
 main h2 {
@@ -108,8 +139,8 @@ main blockquote {
   border-left: 3px solid #e3e3e3;
   background: none;
   color: #444;
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.9;
 }
 
 /* 引文内部段落贴紧，避免正文与落款之间出现大片空白 */
@@ -120,6 +151,7 @@ main blockquote p { margin: 0.05em 0; }
 main blockquote p:last-child:not(:only-child) {
   font-size: 14px;
   color: #888;
+  text-indent: 0;   /* 出处标注不缩进 */
 }
 
 table {
