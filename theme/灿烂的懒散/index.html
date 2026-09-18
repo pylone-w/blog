@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>灿烂的懒散 | Pylone&#39;s Blog</title>
+    <link rel="stylesheet" href="/blog/css/style.css" />
+    <link rel="stylesheet" href="/blog/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/blog/">Home</a></li>
+      
+      <li><a href="/blog/about/">About</a></li>
+      
+      <li><a href="/blog/categories/">Blog/日志</a></li>
+      
+      <li><a href="/blog/theme/">主题</a></li>
+      
+      <li><a href="/blog/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">灿烂的懒散</span></h1>
+
+<h2 class="date">2011/09/22</h2>
+</div>
+
+<main>
+<p>从阴冷的宿舍出来，就轻易进入灿烂的色彩，融入萧瑟的味道，我太他妈爱秋天了！
+埋头揪起胸前的夹克靠近鼻孔，能触摸到热烈冷静的阳光，嗅探出质朴干净的气息，我就更加亲切这个伴我4年秋冬的外套。
+每年的这个时候，抬头透过枝丫瞟着圆圆的秋天的太阳公公，就会不出意外地偶然想起一幅模糊的小学课文图画，纯真的村童执着发黄的竹竿，敲打老枣树枝头零星的大红枣，那些红枣在这些算不上沧桑的经年岁月里，酿出梅花绛红的色彩，
+泛着灿烂温暖的秋光，然而我却总嗅不到梅花的味道，甚至不能意淫出来，我想，可能我从来就没见过真实的梅花，它只在白色的世界沉默地绚烂吧，我突生无端的伤感，捡起不知什么门什么科的叶子，贴近干燥的脸颊，刻意去陶醉于它的静美。
+这幅意景，说不上是对童年的怀念，还是对秋天疯狂的萧瑟有种伤感的情怀。</p>
+
+</main>
+
+  <footer>
+  <div class="comments" id="comments">
+    <button type="button" class="comments-toggle" id="comments-toggle">评论</button>
+    <div id="comments-host"></div>
+  </div>
+  <script>
+  (function () {
+    var wrap = document.getElementById('comments');
+    var host = document.getElementById('comments-host');
+    var btn  = document.getElementById('comments-toggle');
+    if (!wrap || !host || !btn) return;
+
+    var isOpen = false;
+    var autoArmed = true;   
+
+    function open() {
+      if (isOpen) return;
+      isOpen = true;
+      host.innerHTML = '';
+      var s = document.createElement('script');
+      s.src = 'https://utteranc.es/client.js';
+      s.setAttribute('repo', 'pylone-w/blog');
+      s.setAttribute('issue-term', 'title');
+      s.setAttribute('theme', 'github-light');
+      s.setAttribute('crossorigin', 'anonymous');
+      s.async = true;
+      host.appendChild(s);
+      btn.textContent = '收起评论';
+      wrap.className = 'comments is-open';
+    }
+
+    function close() {
+      if (!isOpen) return;
+      isOpen = false;
+      host.innerHTML = '';   
+      btn.textContent = '评论';
+      wrap.className = 'comments';
+    }
+
+    btn.addEventListener('click', function () {
+      if (isOpen) { autoArmed = false; close(); }
+      else { open(); }
+    });
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) {
+          io.disconnect();
+          if (autoArmed) open();
+        }
+      }, { rootMargin: '150px' });
+      io.observe(wrap);
+    }
+  })();
+  </script>
+  <script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+
+  
+
+
+  
+  <hr/>
+  © <a href="https://github.com/pylone-w/r">R</a>
+| <a href="https://github.com/pylone-w">Github</a>
+ | <a href="https://music.163.com/#/user/home?id=6246158">Music</a>
+  
+  </footer>
+  </body>
+</html>
+

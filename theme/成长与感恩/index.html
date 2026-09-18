@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>成长与感恩 | Pylone&#39;s Blog</title>
+    <link rel="stylesheet" href="/blog/css/style.css" />
+    <link rel="stylesheet" href="/blog/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/blog/">Home</a></li>
+      
+      <li><a href="/blog/about/">About</a></li>
+      
+      <li><a href="/blog/categories/">Blog/日志</a></li>
+      
+      <li><a href="/blog/theme/">主题</a></li>
+      
+      <li><a href="/blog/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">成长与感恩</span></h1>
+
+<h2 class="date">2022/07/29</h2>
+</div>
+
+<main>
+<p>Author: Pylone
+<strong>Created</strong>: <code>=dateformat(this.file.ctime, &quot;yyyy-MM-dd&quot;)</code>
+<strong>Modified</strong>: <code>=dateformat(this.file.mtime, &quot;yyyy-MM-dd&quot;)</code></p>
+<hr>
+<p>好久没写日记了，一是忙，二是并不像以前那么容易痛苦和忧愁。我想我是更自信一点了，丢掉犹豫，勇往直前。遇到困难，第一时间去规划解决，而不是偷懒拖延无动于衷的同时对产生的畏难情绪细嚼慢咽，酝酿让自己崩溃的绝望。</p>
+<p>在自信之上，我想我更从容了，不再将决定依赖于他人的看法上，终于开始做自己的主人，在三十四岁的年纪。实际上，始终并没有人去主导我的想法，一切是自己主动去迎合去猜测去证明自己，这迷之自卑和讨好型人格。</p>
+<p>现在，我逐渐找到了自己想去追求的方向，更有了去追求的勇气，不用去顾虑任何人。这是何等广大的天地呢。</p>
+<p>在空旷清爽的周五黄昏，我写完材料从办公室出来，背手从容地走向米线店，从未感受到如此自由，自由加班，自由写材料。任务不变，心态却已是天壤之别。</p>
+<p>我逐渐掌握自己的节奏，晚上早睡，早上早起，以最好的精力去克服最难的任务，剩下的便是泥沙俱下，无所畏惧了。</p>
+<p>我要感谢身边的朋友，陈博士给了我自信和方向，志远给了我做事果决的力量，徐胜涛给了我无所畏惧的自信，凯博让我意识到主动和交流的魔力，鲁老师给我最大的无私支持，树立人生坦荡兄弟情义的榜样。李文希呢，给了我自信吧，可能这种自信基于一种误解，还能吸引女生的魅力自信，对幽默的自信。潘老师呢，更多是项目上的运作经验吧。</p>
+<p>写于2022。</p>
+
+</main>
+
+  <footer>
+  <div class="comments" id="comments">
+    <button type="button" class="comments-toggle" id="comments-toggle">评论</button>
+    <div id="comments-host"></div>
+  </div>
+  <script>
+  (function () {
+    var wrap = document.getElementById('comments');
+    var host = document.getElementById('comments-host');
+    var btn  = document.getElementById('comments-toggle');
+    if (!wrap || !host || !btn) return;
+
+    var isOpen = false;
+    var autoArmed = true;   
+
+    function open() {
+      if (isOpen) return;
+      isOpen = true;
+      host.innerHTML = '';
+      var s = document.createElement('script');
+      s.src = 'https://utteranc.es/client.js';
+      s.setAttribute('repo', 'pylone-w/blog');
+      s.setAttribute('issue-term', 'title');
+      s.setAttribute('theme', 'github-light');
+      s.setAttribute('crossorigin', 'anonymous');
+      s.async = true;
+      host.appendChild(s);
+      btn.textContent = '收起评论';
+      wrap.className = 'comments is-open';
+    }
+
+    function close() {
+      if (!isOpen) return;
+      isOpen = false;
+      host.innerHTML = '';   
+      btn.textContent = '评论';
+      wrap.className = 'comments';
+    }
+
+    btn.addEventListener('click', function () {
+      if (isOpen) { autoArmed = false; close(); }
+      else { open(); }
+    });
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) {
+          io.disconnect();
+          if (autoArmed) open();
+        }
+      }, { rootMargin: '150px' });
+      io.observe(wrap);
+    }
+  })();
+  </script>
+  <script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+
+  
+
+
+  
+  <hr/>
+  © <a href="https://github.com/pylone-w/r">R</a>
+| <a href="https://github.com/pylone-w">Github</a>
+ | <a href="https://music.163.com/#/user/home?id=6246158">Music</a>
+  
+  </footer>
+  </body>
+</html>
+

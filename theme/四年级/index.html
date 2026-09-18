@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>四年级 | Pylone&#39;s Blog</title>
+    <link rel="stylesheet" href="/blog/css/style.css" />
+    <link rel="stylesheet" href="/blog/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/blog/">Home</a></li>
+      
+      <li><a href="/blog/about/">About</a></li>
+      
+      <li><a href="/blog/categories/">Blog/日志</a></li>
+      
+      <li><a href="/blog/theme/">主题</a></li>
+      
+      <li><a href="/blog/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">四年级</span></h1>
+
+<h2 class="date">2014/06/12</h2>
+</div>
+
+<main>
+<p>早上吃过饭，我坐在自己的座位，右胳膊撑在作业本上，以便放置我的下巴，这时我的眼睛就好比三脚架上的相机。我转过40度角，用这架九八成新的相机望着远处的过道发呆，那天我还是四年级的学生。我发呆的那会儿，教室里充满了吃饭的味道，这种味道很容易形容，如果你号召三十个山西人，把他们赶进一间四十见方的屋子，每人发一个不锈钢或者洋瓷的饭盒、一个半斤的椭圆馒头、一罐头腌来的韭菜，还有一池子滚烫的热水，让他们就着韭菜吃泡馍，你站在门口深呼吸，体会的就是这种味道。我当时就坐在这种味道里发呆，我的那些同学已经吃完泡馍，洗完缸子，现在要穿过课桌让出的过道去宿舍放置他们吃饭的家伙。说到宿舍，这回忆比那些童稚的面庞更深刻——女生宿舍就座落在我们的大教室——一排女生的床铺，在教室后边和大黑板遥遥对望，如果你那时发育好个子高——座位被老师安置在后排，上课回头就会看到这种场景：宽窄不等的木床上是花花绿绿的床单和被褥，而高低参差的床头，挂着花花绿绿的馍袋，里面装满了馍和咸菜。总之，也没有女生的味道。</p>
+<p>除此之外，关于四年级和这座教室我没有更多真实的印象，我大概还能想起在教室门外的高台上看一本课外书的场景，我记忆中的感触是——当天下午的阳光照在了发黄的纸张上。就现在来讲，那本书是否给我带来过快乐或着顿悟，完全变成没有价值的谜题，如果有一天上帝发着光飘在不远的天空，喊我出来，并对我宣告那本书的名字，我愿意买一本，把头埋进去，大哭一场，然后把它烧掉，或者拍个照再把它烧掉。烧起来后我对着那团火焰发呆，大概又会觉得这种怀念并不值得，有一个理由是，四年级的我没有放假的周末，又经常被要求拿着做错的作业到讲台上接受众目睽睽的挨打。所以这种回忆理论讲苦涩无味。但是时间这种东西我并不了解，它大概有自己的生活习惯，它收藏每个人的过往，又不按着顺序和种类一一码好，而是一股脑儿扔进一种大窑子，随后又不时添一些香物进去，温存着渐渐发酵，散发一种味道，我想那些过往就是夹着这样宁静的香味从孤独的黑夜中飘过来，说不好是谷酒香和烟草香。总之回忆不会苦涩，反而上瘾。</p>
+<p><strong>写于2014年左右，qq日志。</strong></p>
+<blockquote>
+<p>生活呈现的一幅图像实际上给我们带来多种不同的感觉。例如，在一部已经读过的书的封面上、标题字母之间，视觉编织进了很久以前某个夏夜的皓月流光。早晨牛奶咖啡的味道使我们产生那种对大好天气的朦胧希望，从前，当我们用凝脂般打着皱褶的白瓷碗喝牛奶咖啡的时候，盈实的白昼还完好无缺，当时这种朦胧的希望曾有那么多次在晨曦明确的不可预料中向我们绽开笑靥。——追忆似水年华（全集）</p>
+</blockquote>
+
+</main>
+
+  <footer>
+  <div class="comments" id="comments">
+    <button type="button" class="comments-toggle" id="comments-toggle">评论</button>
+    <div id="comments-host"></div>
+  </div>
+  <script>
+  (function () {
+    var wrap = document.getElementById('comments');
+    var host = document.getElementById('comments-host');
+    var btn  = document.getElementById('comments-toggle');
+    if (!wrap || !host || !btn) return;
+
+    var isOpen = false;
+    var autoArmed = true;   
+
+    function open() {
+      if (isOpen) return;
+      isOpen = true;
+      host.innerHTML = '';
+      var s = document.createElement('script');
+      s.src = 'https://utteranc.es/client.js';
+      s.setAttribute('repo', 'pylone-w/blog');
+      s.setAttribute('issue-term', 'title');
+      s.setAttribute('theme', 'github-light');
+      s.setAttribute('crossorigin', 'anonymous');
+      s.async = true;
+      host.appendChild(s);
+      btn.textContent = '收起评论';
+      wrap.className = 'comments is-open';
+    }
+
+    function close() {
+      if (!isOpen) return;
+      isOpen = false;
+      host.innerHTML = '';   
+      btn.textContent = '评论';
+      wrap.className = 'comments';
+    }
+
+    btn.addEventListener('click', function () {
+      if (isOpen) { autoArmed = false; close(); }
+      else { open(); }
+    });
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) {
+          io.disconnect();
+          if (autoArmed) open();
+        }
+      }, { rootMargin: '150px' });
+      io.observe(wrap);
+    }
+  })();
+  </script>
+  <script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+
+  
+
+
+  
+  <hr/>
+  © <a href="https://github.com/pylone-w/r">R</a>
+| <a href="https://github.com/pylone-w">Github</a>
+ | <a href="https://music.163.com/#/user/home?id=6246158">Music</a>
+  
+  </footer>
+  </body>
+</html>
+
