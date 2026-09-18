@@ -1,3 +1,13 @@
+/* 配色：极淡的暖黄纸底 + 纯黑正文 + 少量红作强调。
+   底色偏黄之后，原先在白底上显得跳的元素都会落回整体色调里。
+   想调深浅只改这三个变量即可。 */
+:root {
+  --paper:  #FBF7E4;   /* 纸底：极淡的暖黄 */
+  --fill:   #F2ECD4;   /* 次级填充：代码底、表格斑马纹 */
+  --rule:   #E3DCC0;   /* 分隔线 */
+  --accent: #D63D4A;   /* 强调红：标题底、自述引用 */
+}
+
 body {
   max-width: 100%;
   margin: auto;
@@ -7,7 +17,9 @@ body {
      行与行之间空出约一个字的高度。写成无单位数字，
      子元素会按各自字号重新计算，比 em 更稳。 */
   line-height: 2;
-  font-size: 16px
+  font-size: 16px;
+  background: var(--paper);
+  color: #000;
 }
 
 
@@ -37,7 +49,7 @@ li {
   padding: 0;
   font-family:"Times New Roman", Serif;
   font-size: 16px;
-  color: grey;
+  color: inherit;   /* 原先写死 grey，导航栏和列表都会发灰；正文统一用黑 */
 }
 
 
@@ -48,7 +60,6 @@ li {
 }
 .article-meta, .menu a {
   text-decoration: none;
-  background: #ffffff;
   padding: 5px;
   line-height: 2.0em
 }
@@ -75,7 +86,7 @@ footer a { text-decoration: none; }
   margin: 0 auto;          /* footer 整体居中，按钮也跟着居中 */
   background: none;
   border: none;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed var(--rule);
   padding: 0 0 2px;
   color: #888;
   font-family: inherit;
@@ -90,10 +101,10 @@ footer a { text-decoration: none; }
 .utterances-frame { width: 100% !important; }
 hr {
   border-style: dashed;
-  color: #ddd;
+  color: var(--rule);
 }
 
-.article-meta { border-bottom: 0.5px dashed #ccc;
+.article-meta { border-bottom: 0.5px dashed var(--rule);
 }
 
 /* 首页日志列表的年份小标题 */
@@ -106,17 +117,22 @@ hr {
 
 /* code */
 pre {
-  border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
+  border: 1px solid var(--rule);
+  box-shadow: 4px 4px 0 var(--fill);
   padding: 1em;
   overflow-x: auto;
 }
-code { background: #f9f9f9; }
+code { background: var(--fill); }
 pre code { background: none; }
 
-/* 「引用自己的话」：与 `>` 引用他人相对。
-   方括号原样保留，只改字色；字体字号一律继承正文。 */
-.selfquote { color: #D63D4A; }
+/* 「引用自己的话」：字色与正文一致，下方一条虚线作标记。
+   与引用他人的左侧灰竖线、标题的红底块，三者互不抢戏。
+   虚线用比 --rule 稍深的暖灰——--rule 在纸底上太淡，压在字下几乎看不见。 */
+.selfquote {
+  color: inherit;
+  border-bottom: 1px dashed #C0B694;
+  padding-bottom: 1px;
+}
 
 /* misc elements */
 img, iframe, video { max-width: 100%; }
@@ -129,18 +145,27 @@ main p {
   text-indent: 2em;
 }
 
-/* 章节标题上方留出大段空白，让文章结构一眼分明 */
+/* 章节标题：红底白字，但色块只包住文字本身。
+   两个关键点：
+     1. width: fit-content —— 否则色块会左右贯穿整个页面
+     2. line-height: 1.35 —— 正文行高是 2，标题会继承，色块会有 40px 高；
+        压到 1.35 再加一点点内边距，色块才刚好覆盖字体 */
 main h2 {
-  margin: 2.2em 0 0.8em 0;
+  width: fit-content;
+  margin: 2.4em 0 0.9em 0;
+  background: var(--accent);
+  color: #ffffff;
+  line-height: 1.35;
+  padding: 0.1em 0.45em;
 }
 
-/* 引文：去掉浏览器默认的 40px 左右缩进，改用左侧细线锚定。
-   字号与行高收紧一档——引文是插入语，不该比正文更占地方；
-   但上下留白与正文段间距一致，避免读起来忽松忽紧。 */
+/* 引用他人的话：左侧细灰线。
+   不做成红底块——引用多的文章（如《关于博尔赫斯》有 8 处）会变成一片红，
+   反过来把标题的强调淹没了。红色留给标题，引用用最轻的方式存在。 */
 main blockquote {
   margin: 0.9em 0;
   padding: 0 0 0 0.85em;
-  border-left: 3px solid #e3e3e3;
+  border-left: 3px solid var(--rule);
   background: none;
   color: #444;
   font-size: 16px;
@@ -150,7 +175,7 @@ main blockquote {
 /* 引文内部段落贴紧，避免正文与落款之间出现大片空白 */
 main blockquote p { margin: 0.05em 0; }
 
-/* 落款日期（引文末段）弱化。加 :not(:only-child) 是为了不误伤
+/* 落款（引文末段）弱化。加 :not(:only-child) 是为了不误伤
    只有一段、没有落款的引文——那是正文而非出处。 */
 main blockquote p:last-child:not(:only-child) {
   font-size: 14px;
@@ -163,6 +188,6 @@ table {
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
-table thead th { border-bottom: 1px solid #ddd; }
+table thead th { border-bottom: 1px solid var(--rule); }
 th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
+thead, tfoot, tr:nth-child(even) { background: var(--fill); }
