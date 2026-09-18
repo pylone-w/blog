@@ -87,7 +87,7 @@ pre {
 code { background: #f9f9f9; }
 pre code { background: none; }
 
-/* misc elements — publish.sh 自测 */
+/* misc elements */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 
