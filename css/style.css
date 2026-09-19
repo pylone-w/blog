@@ -201,6 +201,14 @@ pre code { background: none; }
   padding-bottom: 1px;
 }
 
+/* 作者对文章的注释（Obsidian 里的 ==...==）。
+   只加左右内边距，不加上下——文字跨行时上下内边距会让两块底色叠在一起。 */
+mark {
+  background: rgba(0, 0, 0, 0.6);   /* 黑底，60% 不透明度 */
+  color: #FFFFFF;
+  padding: 0 2px;
+}
+
 /* misc elements */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
