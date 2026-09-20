@@ -66,30 +66,67 @@ li {
 }
 .menu, .article-meta, footer { text-align: center; }
 
-/* 站点头部第一行：图标 + 站名 */
+/* 头部：头像在左，右侧两行文字上下堆叠、左对齐；导航在最右。
+   头像用 align-items:center 垂直居中于两行文字，不必写死偏移量。 */
 .site-head {
   display: flex;
-  align-items: center;
-  gap: 0.5em;
-  margin-bottom: 0.5em;
-}
-.site-logo { width: 56px; height: auto; }
-.site-title { font-size: 25px; }
-
-/* 站点头部：所有页面一致。flex 让标语与导航自动对齐，
-   而不是靠写死的像素偏移——左侧图标高度随窗口变化。 */
-.home-row {
-  display: flex;
+  align-items: flex-end;      /* 左块底边与导航底边对齐 */
   justify-content: space-between;
-  align-items: center;
   gap: 1em;
-  flex-wrap: wrap;          /* 窄屏时自动折行，不至于挤成一团 */
+  margin-bottom: 0.4em;
+  flex-wrap: wrap;
+}
+.brand-block {
+  display: flex;
+  align-items: flex-end;      /* 头像底边与文字块底边齐，再借 .site-head
+                                 的 flex-end 一路对齐到菜单栏红框的底边 */
+  gap: 0.6em;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;          /* 两行贴合，不继承正文的 2 */
+}
+.site-logo { height: 62px; width: auto; display: block; }
+
+/* 站名撑满整列宽度，右边缘才能与标语齐。
+   justify 对单行文字默认无效（它只调整非末行），所以要再加
+   text-align-last: justify —— 这样末行也会被撑开，
+   多出来的空间落在 "Pylone" 与 "World" 之间。 */
+.site-title {
+  font-size: 34px;
+  display: block;
+  /* 花体字比罗马体细，放大两号才压得住 */
+  font-family: "Snell Roundhand", "Apple Chancery", "Brush Script MT", cursive;
+  font-weight: normal;
+  white-space: nowrap;   /* 不许换行——换行会让文字块变三行，压不住头像 */
 }
 
-/* 标语与导航项统一成同样的红色框体：同高（--tagline-h）、同样的内边距。
-   关键：<a> 默认是 display:inline，而 height 对行内元素无效——不加
-   inline-block 的话导航项的框体只有文字那么高，与标语对不齐。 */
-.home-row .home-tagline,
+/* 标语：黑色斜体、无底色。站名下方，与站名左对齐（同属 brand-text 一列）。 */
+.home-tagline {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: normal;
+  color: #000000;
+  background: none;
+  margin: 0;
+  /* 宽度由站名那一行决定，这里撑满并与它两端对齐。
+     标语有 3 个词间空格，多出来的空隙摊在它们之间，比挤在一个地方自然。 */
+  display: block;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+/* 文章标题：单独一行，居中 */
+.page-title {
+  font-size: 22px;
+  font-weight: normal;
+  text-align: center;
+  margin: 1.2em 0 0.6em 0;
+}
+
+/* 导航项：红底白字。
+   关键：<a> 默认 display:inline，height 对其无效，必须 inline-block。 */
 .home-nav a {
   display: inline-block;
   box-sizing: border-box;
@@ -102,16 +139,6 @@ li {
   text-decoration: none;
 }
 
-.home-row .home-tagline { font-size: 20px; }
-
-/* 文章标题：与标语、导航同一行，居中。字号比标语大，
-   不加底色——它是页面的标题，靠字号和位置区分即可。 */
-.home-row .page-title {
-  font-size: 22px;
-  font-weight: normal;
-  margin: 0;
-  text-align: center;
-}
 .home-nav a { font-size: 16px; }
 
 /* 文末日期：靠右、单独一行，框体与顶部导航项完全同规格（--tagline-h），
